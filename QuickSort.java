@@ -1,9 +1,9 @@
 public class QuickSort {
-	public static void QuickSort(int a[],int start,int end) {
+	public static void Quick(int a[],int start,int end) {
 		if(start<end) {
 			int pIndex = Partition(a,start,end);
-			QuickSort(a,start,pIndex-1);
-			QuickSort(a,pIndex+1,end);
+			Quick(a,start,pIndex-1);
+			Quick(a,pIndex+1,end);
 		}
 	}
 	public static void swap(int a,int b){
@@ -15,7 +15,7 @@ public class QuickSort {
 		int pivot = a[end];
 		int pIndex = start;
 		for(int i=start;i<=end;i++) {
-			if(a[i]<=pivot) {
+			if(a[i]<=pivot-1) {
 				swap(a[i],a[pIndex]);
 				pIndex++;
 			}
@@ -29,7 +29,7 @@ public class QuickSort {
 		System.out.println("Array Before sorting");
 		for(int i=0;i<a.length;i++)
 			System.out.print(a[i]);
-		QuickSort(a,0,end);
+		Quick(a,0,end);
 		System.out.println("\nArray After Sorting");
 		for(int i=0;i<a.length;i++)
 			System.out.print(a[i]);
