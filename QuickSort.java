@@ -1,35 +1,36 @@
 public class QuickSort {
-	public static void QuickSort(int a[],int start,int end) {
+	public void Quick(int a[],int start,int end) {
 		if(start<end) {
 			int pIndex = Partition(a,start,end);
-			QuickSort(a,start,pIndex-1);
-			QuickSort(a,pIndex+1,end);
+			Quick(a,start,pIndex-1);
+			Quick(a,pIndex+1,end);
 		}
 	}
-	public static void swap(int a,int b){
-		int temp=a;
-		a=b;
-		b=temp;
-	}
-	public static int Partition(int a[],int start,int end) {
+	public int Partition(int a[],int start,int end) {
 		int pivot = a[end];
-		int pIndex = start;
-		for(int i=start;i<=end;i++) {
+		int pIndex = start-1;
+		for(int i=start;i<end;i++) {
 			if(a[i]<=pivot) {
-				swap(a[i],a[pIndex]);
 				pIndex++;
+				int temp=a[i];
+				a[i]=a[pIndex];
+				a[pIndex]=temp;
 			}
 		}
-		swap(a[pIndex],a[end]);
-		return pIndex;
+		int temp=a[pIndex+1];
+		a[pIndex+1]=a[end];
+		a[end]=temp;
+		return pIndex+1;
 	}
 	public static void main(String args[]) {
-		int a[]={5,6,7,8,9,1,2,3,4};
+		QuickSort q = new QuickSort();
+		int a[]={5,4,8,7,3,6,1};
 		int end=a.length-1;
 		System.out.println("Array Before sorting");
 		for(int i=0;i<a.length;i++)
 			System.out.print(a[i]);
-		QuickSort(a,0,end);
+		System.out.println("\n"+end);
+		q.Quick(a,0,end);
 		System.out.println("\nArray After Sorting");
 		for(int i=0;i<a.length;i++)
 			System.out.print(a[i]);
