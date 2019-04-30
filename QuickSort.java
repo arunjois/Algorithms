@@ -8,14 +8,13 @@ public class QuickSort {
 	}
 	public int Partition(int a[],int start,int end) {
 		int pivot = a[end];
-		int pIndex = start;
+		int pIndex = start-1;
 		for(int i=start;i<end;i++) {
 			if(a[i]<=pivot) {
-
+				pIndex++;
 				int temp=a[i+1];
 				a[i+1]=a[pIndex];
 				a[pIndex]=temp;
-				pIndex++;
 			}
 		}
 		int temp=a[pIndex+1];
