@@ -6,27 +6,20 @@ public class QuickSort {
 			Quick(a,pIndex+1,end);
 		}
 	}
-	public void swap(int a,int b){
-		int temp=a;
-		a=b;
-		b=temp;
-	}
 	public int Partition(int a[],int start,int end) {
 		int pivot = a[end];
 		int pIndex = start;
 		for(int i=start;i<end;i++) {
-			if(a[i]<pivot) {
+			if(a[i]<=pivot) {
 
-				//swap(a[i],a[pIndex]);
 				int temp=a[i+1];
 				a[i+1]=a[pIndex];
 				a[pIndex]=temp;
 				pIndex++;
 			}
 		}
-		//swap(a[pIndex+1],a[end]);
-		int temp=a[pIndex];
-		a[pIndex]=a[end];
+		int temp=a[pIndex+1];
+		a[pIndex+1]=a[end];
 		a[end]=temp;
 		return pIndex+1;
 	}
