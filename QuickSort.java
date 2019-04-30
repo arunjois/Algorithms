@@ -28,7 +28,7 @@ public class QuickSort {
 		int temp=a[pIndex];
 		a[pIndex]=a[end];
 		a[end]=temp;
-		return pIndex;
+		return pIndex+1;
 	}
 	public static void main(String args[]) {
 		QuickSort q = new QuickSort();
